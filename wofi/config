@@ -1,0 +1,7 @@
+mode=drun
+allow_images=true
+image_size=48
+style_file=~/.config/wofi/style.css
+no_actions=true
+prompt=search
+insensitive=true

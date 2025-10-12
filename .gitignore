@@ -1,0 +1,46 @@
+# Ignore cache, logs, and other non-configuration files
+*.db
+*.db-journal
+*-journal
+*.lock
+*.log
+*.log.*
+*.settings-ported
+pavucontrol.ini
+
+# Ignore application data directories
+.mozilla/
+celluloid/
+chromium/
+Code/
+configstore/
+Cursor/
+discord/
+Electron/
+go/
+gtk-3.0/
+gtk-4.0/
+ibus/
+kde.org/
+libreoffice/
+menus/
+nautilus/
+obs-studio/
+pamac/
+pulse/
+rog/
+session/
+yay/
+
+# Ignore user-specific files
+mimeapps.list
+user-dirs.dirs
+user-dirs.locale
+.gsd-keyboard.settings-ported
+dconf
+environment.d
+fontconfig
+rclone
+systemd
+QtProject.conf
+trashrc
