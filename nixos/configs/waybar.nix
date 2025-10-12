@@ -81,20 +81,17 @@
           format = "󰘚  {usage}%";
           tooltip = true;
           interval = 1;
-          on-click = "kitty -e htop";
         };
 
         memory = {
           format = "󰍛  {}%";
           interval = 1;
-          on-click = "kitty -e htop";
         };
 
         temperature = {
           critical-threshold = 80;
           format = "{icon}  {temperatureC}°C";
           format-icons = [ "󱃃" "󰔏" "󱃂" ];
-          on-click = "kitty -e s-tui";
         };
 
         battery = {
@@ -114,7 +111,6 @@
           format-ethernet = "󰈀  {ifname}";
           format-linked = "󰈀  {ifname} (No IP)";
           format-disconnected = "󰖪 Disconnected";
-          format-alt = "{ifname}: {ipaddr}/{cidr}";
           format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" ];
           tooltip-format = "{ifname}: {ipaddr}";
           on-click = "/home/rajveer/.local/bin/toggle-nm-applet.sh";
@@ -129,7 +125,6 @@
             headset = "󰋎";
             phone = "󰏲";
             portable = "󰄝";
-            car = "󰄋";
             default = [ "󰕿" "󰖀" "󰕾" ];
           };
           on-click = "pavucontrol";
@@ -141,8 +136,8 @@
         backlight = {
           format = "{icon}  {percent}%";
           format-icons = [ "󰃞" "󰃟" "󰃠" ];
-          on-scroll-up = "brightnessctl set +5%";
-          on-scroll-down = "brightnessctl set 5%-";
+          on-scroll-up = "brightnessctl set +1%";
+          on-scroll-down = "brightnessctl set 1%-";
         };
 
         tray = {
@@ -151,15 +146,18 @@
         };
 
         bluetooth = {
-          format = " {status} {device_alias}";
-          format-disabled = "";
-          format-connected = " {device_alias}";
-          format-connected-battery = " {device_alias} {device_battery_percentage}%";
-          format-icons = [ "" "" ];
+          format = "{icon}  {status} {device_alias}";
+          format-disabled = "󰂲  off";
+          format-connected = "󰂯  {device_alias}";
+          format-connected-battery = "󰂯  {device_alias} {device_battery_percentage}%";
+          format-icons = [ "󰂯" "󰂲" ];
+
+          # tooltop
           tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
           tooltip-format-enumerate-connected-battery = "{device_alias}\t{device_address}\t{device_battery_percentage}%";
+
           on-click = "blueman-manager";
         };
       };
