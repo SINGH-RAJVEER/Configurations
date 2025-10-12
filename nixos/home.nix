@@ -1,8 +1,11 @@
+{ config, pkgs, ... } :
+
 {
-  config,
-  pkgs,
-  ...
-}:{
+  imports = [
+    ./configs/wofi.nix
+    ./configs/starship.nix
+  ];
+
   home.username = "rajveer";
   home.homeDirectory = "/home/rajveer";
 
@@ -10,11 +13,9 @@
     neovim
     ghostty
     git
-    wofi
     brave
     swww
     eww
-    waybar
     hyprlock
     hypridle
     thunderbird
@@ -28,7 +29,6 @@
     steam
     libreoffice
     nautilus
-    starship
     brightnessctl
     eza
     zoxide
@@ -37,8 +37,10 @@
     rustup
     zsh
     xh
+    delta
+    networkmanagerapplet
   ];
 
   home.stateVersion = "25.05";
-  programs.home-manager.enable = true;
 }
+

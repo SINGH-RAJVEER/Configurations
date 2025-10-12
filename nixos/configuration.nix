@@ -6,6 +6,9 @@
       ./hardware-configuration.nix
     ];
 
+  # flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Hyprland
   programs.hyprland.enable = true;
 
@@ -16,7 +19,7 @@
   # Bluetooth
   hardware.bluetooth = {
     enable = true;
-    powerOnBoot = true;
+    # powerOnBoot = true;
 
     settings = {
       General = {
@@ -24,10 +27,16 @@
         FastConnectable = true;
       };
 
-    Policy = {
-      AutoEnable = true;
-    };
+    # Policy.AutoEnable = true;
    };
+  };
+  
+  # home-manager
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
+    users.rajveer = import ./home.nix;
   };
 
   # Security
@@ -49,8 +58,6 @@
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
-  # starship
-  programs.starship.enable = true;
 
   # services
   services = {
@@ -79,7 +86,7 @@
 
   # asus
   services.asusd.enable = true;
-  # services.supergfxctl.enable = true;
+  services.supergfxd.enable = true;
 
   #keyd
   services.keyd = {
@@ -121,16 +128,14 @@
     packages = with pkgs; [];
   };
 
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # system packages
   environment.systemPackages = with pkgs; [
   hyprland
-  keyd
   asusctl
-  supergfxctl
-  sudo-rs
   ];
 
   fonts.packages = with pkgs; [
