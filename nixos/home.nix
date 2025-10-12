@@ -15,6 +15,7 @@
     ghostty
     git
     brave
+    anytype
     swww
     eww
     hyprlock
