@@ -4,6 +4,7 @@
   imports = [
     ./configs/wofi.nix
     ./configs/starship.nix
+    ./configs/waybar.nix
   ];
 
   home.username = "rajveer";
