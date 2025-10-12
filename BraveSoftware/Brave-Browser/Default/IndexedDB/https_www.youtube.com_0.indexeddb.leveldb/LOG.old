@@ -1,0 +1,23 @@
+2025/10/11-21:30:32.066 1e51 Reusing MANIFEST /home/rajveer/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/10/11-21:30:32.066 1e51 Recovering log #96
+2025/10/11-21:30:32.074 1e51 Reusing old log /home/rajveer/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000096.log 
+2025/10/11-21:30:32.074 1e51 Delete type=2 #95
+2025/10/11-21:30:32.074 1e51 Delete type=2 #97
+2025/10/11-21:30:32.185 1e51 Level-0 table #101: started
+2025/10/11-21:30:32.203 1e51 Level-0 table #101: 1188327 bytes OK
+2025/10/11-21:30:32.205 1e51 Delete type=0 #96
+2025/10/11-21:30:33.719 1e51 Compacting 1@1 + 1@2 files
+2025/10/11-21:30:33.726 1e51 Generated table #102@1: 358 keys, 127941 bytes
+2025/10/11-21:30:33.727 1e51 Compacted 1@1 + 1@2 files => 127941 bytes
+2025/10/11-21:30:33.729 1e51 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/10/11-21:30:33.729 1e51 Delete type=2 #98
+2025/10/11-21:30:33.729 1e51 Delete type=2 #101
+2025/10/11-22:48:03.522 1e51 Level-0 table #104: started
+2025/10/11-22:48:03.560 1e51 Level-0 table #104: 1580294 bytes OK
+2025/10/11-22:48:03.563 1e51 Delete type=0 #100
+2025/10/11-23:18:10.723 1e51 Compacting 1@1 + 1@2 files
+2025/10/11-23:18:10.731 1e51 Generated table #105@1: 354 keys, 58163 bytes
+2025/10/11-23:18:10.731 1e51 Compacted 1@1 + 1@2 files => 58163 bytes
+2025/10/11-23:18:10.734 1e51 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/10/11-23:18:10.735 1e51 Delete type=2 #102
+2025/10/11-23:18:10.735 1e51 Delete type=2 #104
