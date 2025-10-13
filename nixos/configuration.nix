@@ -158,7 +158,9 @@
 
   # zsh
   users.defaultUserShell = pkgs.zsh;
-  programs.zsh = {
+  programs = {
+  steam.enable = true;
+  zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
@@ -167,8 +169,9 @@
       enable = true;
     };
   };
+  };
 
-  # Define a user account.
+  # Define a user account
   users.users.rajveer = {
     isNormalUser = true;
     description = "Rajveer Singh";

@@ -24,11 +24,12 @@
         modules-right = [
           "tray"
           "network"
+          "custom/hotspot"
           "bluetooth"
           "pulseaudio"
+	  "custom/playerctl"
           "backlight"
           "cpu"
-          "temperature"
           "memory"
           "battery"
           "custom/uptime"
@@ -87,10 +88,10 @@
           interval = 3;
         };
 
-        temperature = {
-          critical-threshold = 80;
-          format = "{icon}  {temperatureC}°C";
-          format-icons = [ "󱃃" "󰔏" "󱃂" ];
+        "custom/hotspot" = {
+          format = "󰀂 ";
+          on-click = "";
+          on-click-middle = "systemctl is-active --quiet create_ap && sudo systemctl stop create_ap || sudo systemctl start create_ap";
         };
 
         battery = {
@@ -190,10 +191,7 @@
       }
 
       /* Common module styling */
-      #mode, #mpd, #custom-weather, #custom-playerctl, #clock, #cpu,
-      #memory, #temperature, #battery, #network, #pulseaudio,
-      #backlight, #disk, #custom-uptime, #custom-updates, #custom-quote,
-      #idle_inhibitor, #tray, #bluetooth {
+      #mode, #clock, #tray, #network, #bluetooth, #pulseaudio, #backlight, #cpu, #custom-hotspot, #custom-playerctl, #memory, #battery, #custom-uptime, #custom-playerctl {
         padding: 0 10px;
         margin: 3px;
         background-color: @background-light;
@@ -201,11 +199,17 @@
       }
 
       /* Workspaces styling */
+      #workspaces {
+        background-color: transparent;
+      }
+
       #workspaces button {
-        padding: 0 6px;
-        background-color: @background;
+        background-color: @background-light;
+        color: #FFFFFF;
         border-radius: 3px;
-        color: @workspaces-color;
+        font-weight: 900;
+        border: none;
+        padding: 2px 6px;
         margin: 3px;
       }
 
@@ -220,7 +224,7 @@
         border-radius: 3px;
         font-weight: 900;
         border: none;
-        padding: 0 6px;
+        padding: 2px 6px;
         margin: 3px;
       }
 
@@ -230,10 +234,9 @@
       }
 
       /* Module-specific styling */
-      #mode, #mpd, #custom-weather, #custom-playerctl, #clock, #cpu,
-      #memory, #temperature, #battery, #network, #pulseaudio,
-      #backlight, #disk, #custom-uptime, #custom-updates, #custom-quote,
-      #idle_inhibitor, #bluetooth {
+      #mode, #clock, #cpu,
+      #memory, #battery, #network, #pulseaudio,
+      #backlight, #custom-uptime, #bluetooth {
         color: @foreground;
       }
 

@@ -34,6 +34,7 @@
     blueman
     exfatprogs
     brightnessctl
+    linux-wifi-hotspot
  
     # development
     rustup
