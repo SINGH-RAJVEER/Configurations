@@ -54,7 +54,6 @@
     steam
     libreoffice
     nautilus
-    kdePackages.dolphin
   ];
 
   home.stateVersion = "25.05";
