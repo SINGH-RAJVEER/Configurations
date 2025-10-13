@@ -11,36 +11,49 @@
   home.homeDirectory = "/home/rajveer";
 
   home.packages = with pkgs; [
-    neovim
-    ghostty
-    git
-    brave
-    anytype
-    swww
-    eww
-    hyprlock
-    hypridle
-    thunderbird
-    deja-dup
-    bun
-    gemini-cli
-    pavucontrol
-    vscode
-    blueman
-    exfatprogs
-    steam
-    libreoffice
-    nautilus
-    brightnessctl
+    # TUIs
     eza
     zoxide
     fzf
     bat
-    rustup
-    zsh
+    ripgrep
     xh
     delta
+    neovim
+    gemini-cli
+
+    # System
+    git
+    zsh
     networkmanagerapplet
+    swww
+    eww
+    hyprlock
+    hypridle
+    pavucontrol
+    blueman
+    exfatprogs
+    brightnessctl
+ 
+    # development
+    rustup
+    bun
+    python314
+    go
+    jdk
+    uv
+
+    # GUIs
+    ghostty
+    brave
+    anytype
+    thunderbird
+    deja-dup
+    vscode
+    steam
+    libreoffice
+    nautilus
+    kdePackages.dolphin
   ];
 
   home.stateVersion = "25.05";

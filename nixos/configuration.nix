@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -16,19 +16,43 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Bluetooth
-  hardware.bluetooth = {
-    enable = true;
-    # powerOnBoot = true;
+  # hardware
+  hardware = {
+    # nvidia
+    graphics.enable = true;
 
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = true;
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+      prime = {
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+
+        amdgpuBusId = "PCI:65:0:0";
+        nvidiaBusId = "PCI:64:0:0";
       };
 
-    # Policy.AutoEnable = true;
-   };
+      powerManagement = {
+        enable = true;
+        finegrained = true;
+      };
+    };
+
+    # Bluetooth
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = true;
+        };
+      };
+    };
   };
   
   # home-manager
@@ -48,21 +72,34 @@
     polkit.enable = true;
   };
 
-  # Use latest kernel.
+  # latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # networking
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
+  # systemd
+  systemd.services.create_ap.wantedBy = lib.mkForce [ ];
 
   # services
   services = {
     gvfs.enable = true;
     udisks2.enable = true;
+
+    # hotspot
+    create_ap = {
+      enable = true;
+      settings = {
+        INTERNET_IFACE = "wlp99s0";
+        WIFI_IFACE = "wlp99s0";
+        SSID = "nixos";
+        PASSPHRASE = "12345678";
+      };
+    };
 
     # GDM
     displayManager = {
@@ -75,8 +112,9 @@
     xserver = {
       enable = true;
       excludePackages = with pkgs; [ xterm ];
+      
+      videoDrivers = [ "amdgpu" "nvidia" ];
 
-      #xkb
       xkb = {
         layout = "us";
         variant = "";
@@ -88,7 +126,7 @@
   services.asusd.enable = true;
   services.supergfxd.enable = true;
 
-  #keyd
+  # keyd
   services.keyd = {
    enable = true;
    keyboards = {
@@ -106,7 +144,17 @@
        };
      };
    };
- };
+  };
+
+  # Hyprland environment variables for NVIDIA
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    __GL_GSYNC_ALLOWED = "1";
+    __GL_VRR_ALLOWED = "1";
+  };
 
   # zsh
   users.defaultUserShell = pkgs.zsh;
@@ -116,11 +164,11 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     ohMyZsh = {
-	enable = true;
+      enable = true;
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.users.rajveer = {
     isNormalUser = true;
     description = "Rajveer Singh";
@@ -128,14 +176,14 @@
     packages = with pkgs; [];
   };
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # system packages
   environment.systemPackages = with pkgs; [
-  hyprland
-  asusctl
+    hyprland
+    asusctl
+    nvtopPackages.nvidia
   ];
 
   fonts.packages = with pkgs; [
@@ -144,3 +192,4 @@
  
   system.stateVersion = "25.05";
 }
+

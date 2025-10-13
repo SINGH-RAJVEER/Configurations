@@ -22,6 +22,7 @@
         ];
         
         modules-right = [
+          "tray"
           "network"
           "bluetooth"
           "pulseaudio"
@@ -31,7 +32,6 @@
           "memory"
           "battery"
           "custom/uptime"
-          "tray"
         ];
 
         "hyprland/workspaces" = {
@@ -66,7 +66,6 @@
             mode = "month";
             mode-mon-col = 3;
             weeks-pos = "right";
-            on-scroll = 1;
             format = {
               months = "<b>{}</b>";
               days = "{}";
@@ -80,12 +79,12 @@
         cpu = {
           format = "󰘚  {usage}%";
           tooltip = true;
-          interval = 1;
+          interval = 5;
         };
 
         memory = {
           format = "󰍛  {}%";
-          interval = 1;
+          interval = 3;
         };
 
         temperature = {
@@ -113,7 +112,7 @@
           format-disconnected = "󰖪 Disconnected";
           format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" ];
           tooltip-format = "{ifname}: {ipaddr}";
-          on-click = "/home/rajveer/.local/bin/toggle-nm-applet.sh";
+          on-click = "nm-applet &";
         };
 
         pulseaudio = {
@@ -146,11 +145,11 @@
         };
 
         bluetooth = {
-          format = "{icon}  {status} {device_alias}";
+          #format = "{icon}  {status} {device_alias}";
           format-disabled = "󰂲  off";
           format-connected = "󰂯  {device_alias}";
           format-connected-battery = "󰂯  {device_alias} {device_battery_percentage}%";
-          format-icons = [ "󰂯" "󰂲" ];
+          #format-icons = [ "󰂯" "󰂲" ];
 
           # tooltop
           tooltip-format = "{controller_alias}\t{controller_address}\n\n{num_connections} connected";
@@ -186,7 +185,7 @@
       }
 
       window#waybar {
-        background-color: @background;
+        background-color: transparent;
         color: @foreground;
       }
 
@@ -203,10 +202,11 @@
 
       /* Workspaces styling */
       #workspaces button {
-        padding: 0 10px;
-        background-color: transparent;
+        padding: 0 6px;
+        background-color: @background;
+        border-radius: 3px;
         color: @workspaces-color;
-        margin: 0;
+        margin: 3px;
       }
 
       #workspaces button:hover {
@@ -220,7 +220,7 @@
         border-radius: 3px;
         font-weight: 900;
         border: none;
-        padding: 0 10px;
+        padding: 0 6px;
         margin: 3px;
       }
 
