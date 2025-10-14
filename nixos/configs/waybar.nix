@@ -214,7 +214,7 @@
       }
 
       #workspaces button:hover {
-        background: @background-light;
+        background: @background-focused-bg;
         box-shadow: inherit;
       }
 

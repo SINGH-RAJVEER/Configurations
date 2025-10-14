@@ -5,6 +5,8 @@
     ./configs/wofi.nix
     ./configs/starship.nix
     ./configs/waybar.nix
+    ./configs/hypr/hypridle.nix
+    ./configs/hypr/hyprlock.nix
   ];
 
   home.username = "rajveer";
@@ -28,13 +30,12 @@
     networkmanagerapplet
     swww
     eww
-    hyprlock
-    hypridle
     pavucontrol
     blueman
     exfatprogs
     brightnessctl
     linux-wifi-hotspot
+    yazi
  
     # development
     rustup
