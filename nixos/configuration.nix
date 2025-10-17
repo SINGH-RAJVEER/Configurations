@@ -29,12 +29,14 @@
     # silent-boot
     consoleLogLevel = 3;
     initrd.verbose = false;
+    initrd.availableKernelModules = [ "amdgpu" ];
     kernelParams = [
       "quiet"
       "splash"
       "boot.shell_on_fail"
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
+      "amdgpu.sg_display=0"
     ];
     loader.timeout = 0;
     loader.systemd-boot.enable = true;
@@ -45,6 +47,7 @@
   hardware = {
     # nvidia
     graphics.enable = true;
+    graphics.enable32Bit = true;
 
     nvidia = {
       modesetting.enable = true;
@@ -79,7 +82,7 @@
       };
     };
   };
-  
+
   # home-manager
   home-manager = {
     useGlobalPkgs = true;
@@ -114,6 +117,8 @@
   services = {
     gvfs.enable = true;
     udisks2.enable = true;
+    printing.enable = true;
+    mongodb.enable = true;
 
     # hotspot
     create_ap = {
@@ -137,7 +142,7 @@
     xserver = {
       enable = true;
       excludePackages = with pkgs; [ xterm ];
-      
+
       videoDrivers = [ "amdgpu" "nvidia" ];
 
       xkb = {
@@ -149,7 +154,7 @@
 
   # asus
   services.asusd.enable = true;
-  services.supergfxd.enable = true;
+  # services.supergfxd.enable = true;
 
   # keyd
   services.keyd = {
@@ -172,18 +177,19 @@
   };
 
   # Hyprland environment variables for NVIDIA
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    __GL_GSYNC_ALLOWED = "1";
-    __GL_VRR_ALLOWED = "1";
-  };
+  # environment.sessionVariables = {
+  #   LIBVA_DRIVER_NAME = "nvidia";
+  #   GBM_BACKEND = "nvidia-drm";
+  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  #   __GL_GSYNC_ALLOWED = "1";
+  #   __GL_VRR_ALLOWED = "1";
+  # };
 
   # zsh
   users.defaultUserShell = pkgs.zsh;
   programs = {
+  nix-ld.enable = true;
   steam.enable = true;
   zsh = {
     enable = true;

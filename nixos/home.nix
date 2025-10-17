@@ -26,6 +26,7 @@
 
     # System
     git
+    gcc
     zsh
     networkmanagerapplet
     swww
@@ -44,6 +45,10 @@
     go
     jdk
     uv
+    insomnia
+    mongodb
+    mongodb-compass
+    mongosh
 
     # GUIs
     ghostty

@@ -110,7 +110,7 @@
           format-wifi = "{icon}  {essid}";
           format-ethernet = "󰈀  {ifname}";
           format-linked = "󰈀  {ifname} (No IP)";
-          format-disconnected = "󰖪 Disconnected";
+          format-disconnected = "󰖪  Disconnected";
           format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" ];
           tooltip-format = "{ifname}: {ipaddr}";
           on-click = "nm-applet &";
