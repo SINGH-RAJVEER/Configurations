@@ -22,6 +22,7 @@
     xh
     delta
     neovim
+    opencode
     gemini-cli
 
     # System
@@ -38,6 +39,7 @@
     linux-wifi-hotspot
     yazi
     mpv
+    grimblast
  
     # development
     rustup
@@ -61,6 +63,7 @@
     steam
     libreoffice
     nautilus
+    zed-editor
   ];
 
   home.stateVersion = "25.05";
