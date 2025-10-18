@@ -37,6 +37,7 @@
     brightnessctl
     linux-wifi-hotspot
     yazi
+    mpv
  
     # development
     rustup
