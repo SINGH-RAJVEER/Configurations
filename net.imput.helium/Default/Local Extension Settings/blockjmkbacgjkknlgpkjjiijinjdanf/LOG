@@ -1,0 +1,17 @@
+2025/10/19-16:06:52.568 268a Creating DB /home/rajveer/.config/net.imput.helium/Default/Local Extension Settings/blockjmkbacgjkknlgpkjjiijinjdanf since it was missing.
+2025/10/19-16:06:52.572 268a Reusing MANIFEST /home/rajveer/.config/net.imput.helium/Default/Local Extension Settings/blockjmkbacgjkknlgpkjjiijinjdanf/MANIFEST-000001
+2025/10/19-16:06:55.594 268b Level-0 table #5: started
+2025/10/19-16:06:55.600 268b Level-0 table #5: 4269144 bytes OK
+2025/10/19-16:06:55.602 268b Delete type=0 #3
+2025/10/19-16:07:51.611 268d Level-0 table #7: started
+2025/10/19-16:07:51.661 268d Level-0 table #7: 7269938 bytes OK
+2025/10/19-16:07:51.664 268d Delete type=0 #4
+2025/10/19-16:08:09.514 268b Level-0 table #9: started
+2025/10/19-16:08:09.532 268b Level-0 table #9: 5454970 bytes OK
+2025/10/19-16:08:09.535 268b Delete type=0 #6
+2025/10/19-16:09:16.330 268b Level-0 table #11: started
+2025/10/19-16:09:16.345 268b Level-0 table #11: 4650533 bytes OK
+2025/10/19-16:09:16.348 268b Delete type=0 #8
+2025/10/19-16:09:19.967 268a Level-0 table #13: started
+2025/10/19-16:09:20.051 268a Level-0 table #13: 5719556 bytes OK
+2025/10/19-16:09:20.056 268a Delete type=0 #10

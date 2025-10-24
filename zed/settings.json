@@ -7,7 +7,83 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "search": {
+    "regex": false,
+    "include_ignored": true
+  },
+  "centered_layout": {
+    "left_padding": 0.19999980926513672
+  },
+  "bottom_dock_layout": "contained",
+  "tabs": {
+    "show_close_button": "hover",
+    "show_diagnostics": "off",
+    "close_position": "left",
+    "file_icons": true,
+    "git_status": false
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_branch_name": true,
+    "show_onboarding_banner": false,
+    "show_user_picture": true,
+    "show_sign_in": false,
+    "show_project_items": true,
+    "show_branch_icon": false
+  },
+  "status_bar": {
+    "cursor_position_button": false,
+    "active_language_button": true
+  },
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    },
+    "default_height": 420.0,
+    "font_size": 20.0
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "debugger": {
+    "button": false,
+    "timeout": 2000,
+    "dock": "bottom"
+  },
+  "git_panel": {
+    "sort_by_path": true,
+    "collapse_untracked_diff": true
+  },
+  "outline_panel": {
+    "default_width": 350.0,
+    "dock": "right",
+    "button": true
+  },
+  "languages": {
+    "Java": {
+      "inlay_hints": {
+        "enabled": true
+      }
+    }
+  },
+  "diagnostics": {
+    "button": true,
+    "inline": {
+      "min_column": 0,
+      "padding": 4,
+      "enabled": true
+    }
+  },
+  "buffer_font_weight": 600.0,
   "agent": {
+    "use_modifier_to_send": false,
     "dock": "left",
     "model_parameters": []
   },
@@ -15,6 +91,16 @@
     "edit_prediction_provider": "copilot"
   },
   "project_panel": {
+    "button": true,
+    "hide_root": true,
+    "show_diagnostics": "errors",
+    "auto_reveal_entries": true,
+    "indent_size": 20.0,
+    "git_status": true,
+    "folder_icons": true,
+    "file_icons": true,
+    "entry_spacing": "comfortable",
+    "default_width": 260.0,
     "dock": "right"
   },
   "buffer_font_family": "3270 Nerd Font Mono",
@@ -34,13 +120,13 @@
     "diagnostics": true,
     "metrics": false
   },
-  "icon_theme": "Zed (Default)",
+  "icon_theme": "VSCode Icons (Dark)",
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 16.0,
+  "ui_font_size": 20,
+  "buffer_font_size": 22.0,
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Ayu Dark"
+    "dark": "Gruvbox Dark Hard"
   }
 }

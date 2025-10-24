@@ -9,8 +9,21 @@
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Hyprland
-  programs.hyprland.enable = true;
+  programs = {
+    # Hyprland
+    hyprland.enable = true;
+
+    # appimage
+    appimage = {
+      enable = true;
+      binfmt = true;
+      package = pkgs.appimage-run.override { extraPkgs = pkgs: 
+	[
+
+        ]; 
+      };
+    };
+  };
 
   # Bootloader.
   boot = {
@@ -117,7 +130,14 @@
   services = {
     gvfs.enable = true;
     udisks2.enable = true;
+
+    # flatpak
+    flatpak.enable = true;
+
+    # cups
     printing.enable = true;
+
+    #mongodb
     mongodb.enable = true;
 
     # hotspot
@@ -177,14 +197,14 @@
   };
 
   # Hyprland environment variables for NVIDIA
-  # environment.sessionVariables = {
-  #   LIBVA_DRIVER_NAME = "nvidia";
-  #   GBM_BACKEND = "nvidia-drm";
-  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  #   WLR_NO_HARDWARE_CURSORS = "1";
-  #   __GL_GSYNC_ALLOWED = "1";
-  #   __GL_VRR_ALLOWED = "1";
-  # };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    __GL_GSYNC_ALLOWED = "1";
+    __GL_VRR_ALLOWED = "1";
+  };
 
   # zsh
   users.defaultUserShell = pkgs.zsh;

@@ -24,6 +24,7 @@
     neovim
     opencode
     gemini-cli
+    stylua
 
     # System
     git
@@ -64,6 +65,8 @@
     libreoffice
     nautilus
     zed-editor
+    papers
+    github-desktop
   ];
 
   home.stateVersion = "25.05";
