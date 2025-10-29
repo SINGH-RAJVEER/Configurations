@@ -156,9 +156,6 @@
     gvfs.enable = true;
     udisks2.enable = true;
 
-    # flatpak
-    flatpak.enable = true;
-
     # cups
     printing.enable = true;
 
