@@ -2,6 +2,9 @@
   programs.hyprlock = {
     enable = true;
     settings = {
+      general = {
+        hide_cursor = true;
+      };
       background = {
         path = "/home/rajveer/Pictures/wallpapers/macbook-pro.png";
         blur_passes = 3;

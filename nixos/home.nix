@@ -37,10 +37,10 @@
     blueman
     exfatprogs
     brightnessctl
-    linux-wifi-hotspot
     yazi
     mpv
     grimblast
+    cmake
  
     # development
     rustup
@@ -50,9 +50,11 @@
     jdk
     uv
     insomnia
-    mongodb
     mongodb-compass
     mongosh
+    github-desktop
+    vscode
+    zed-editor
 
     # GUIs
     ghostty
@@ -60,13 +62,11 @@
     anytype
     thunderbird
     deja-dup
-    vscode
     steam
     libreoffice
     nautilus
-    zed-editor
     papers
-    github-desktop
+    mission-center
   ];
 
   home.stateVersion = "25.05";

@@ -1,9 +1,14 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
+  disabledModules = ["security/pam.nix"];
+
   imports =
     [
       ./hardware-configuration.nix
+      "${inputs.nixpkgs-howdy}/nixos/modules/security/pam.nix"
+      "${inputs.nixpkgs-howdy}/nixos/modules/services/security/howdy"
+      "${inputs.nixpkgs-howdy}/nixos/modules/services/misc/linux-enable-ir-emitter.nix"
     ];
 
   # flakes
@@ -32,7 +37,6 @@
       enable = true;
       theme = "rings";
       themePackages = with pkgs; [
-        # By default we would install all themes
         (adi1090x-plymouth-themes.override {
           selected_themes = [ "rings" ];
         })
@@ -106,10 +110,13 @@
 
   # Security
   security = {
+    # sudo-rs
     sudo-rs = {
       enable = true;
       wheelNeedsPassword = true;
     };
+
+    # polkit
     polkit.enable = true;
   };
 
@@ -128,6 +135,24 @@
 
   # services
   services = {
+
+    # howdy
+    howdy = {
+      enable = true;
+      package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.howdy;
+      settings = {
+        video.device_path = "/dev/video2";
+        core.no_confirmation = true;
+	video.capture_successful = false;
+        video.dark_threshold = 90;
+      };
+    };
+
+    linux-enable-ir-emitter = {
+      enable = true;
+      package = inputs.nixpkgs-howdy.legacyPackages.${pkgs.system}.linux-enable-ir-emitter;
+    };
+
     gvfs.enable = true;
     udisks2.enable = true;
 
@@ -137,26 +162,15 @@
     # cups
     printing.enable = true;
 
-    #mongodb
+    # mongodb
     mongodb.enable = true;
-
-    # hotspot
-    create_ap = {
-      enable = true;
-      settings = {
-        INTERNET_IFACE = "wlp99s0";
-        WIFI_IFACE = "wlp99s0";
-        SSID = "nixos";
-        PASSPHRASE = "12345678";
-      };
-    };
 
     # GDM
     displayManager = {
       gdm.enable = true;
       defaultSession = "hyprland";
       autoLogin.user = "rajveer";
-      autoLogin.enable = true;
+      autoLogin.enable = false;
     };
 
     xserver = {
