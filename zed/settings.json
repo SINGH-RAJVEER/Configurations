@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "rounded_selection": true,
+  "unnecessary_code_fade": 0.5,
+  "current_line_highlight": "all",
   "search": {
     "regex": false,
     "include_ignored": true
@@ -20,7 +23,7 @@
     "show_diagnostics": "off",
     "close_position": "left",
     "file_icons": true,
-    "git_status": false
+    "git_status": true
   },
   "tab_bar": {
     "show_nav_history_buttons": false,
@@ -36,7 +39,7 @@
     "show_branch_icon": false
   },
   "status_bar": {
-    "cursor_position_button": false,
+    "cursor_position_button": true,
     "active_language_button": true
   },
   "terminal": {
@@ -117,12 +120,12 @@
     "show": "always"
   },
   "telemetry": {
-    "diagnostics": true,
+    "diagnostics": false,
     "metrics": false
   },
   "icon_theme": "VSCode Icons (Dark)",
   "vim_mode": true,
-  "ui_font_size": 20,
+  "ui_font_size": 20.0,
   "buffer_font_size": 22.0,
   "theme": {
     "mode": "dark",
