@@ -3,7 +3,7 @@
 {
   programs.waybar = {
     enable = true;
-    
+
     settings = {
       mainBar = {
         layer = "top";
@@ -11,16 +11,16 @@
         height = 30;
         spacing = "1";
         margin = "0";
-        
+
         modules-left = [
           "hyprland/workspaces"
           "hyprland/mode"
         ];
-        
+
         modules-center = [
           "clock"
         ];
-        
+
         modules-right = [
           "tray"
           "network"
@@ -78,13 +78,13 @@
         };
 
         cpu = {
-          format = "󰘚  {usage}%";
+          format = "󰍛  {usage}%";
           tooltip = true;
           interval = 5;
         };
 
         memory = {
-          format = "󰍛  {}%";
+          format = "󰘚  {}%";
           interval = 3;
         };
 

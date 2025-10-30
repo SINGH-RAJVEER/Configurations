@@ -1,4 +1,4 @@
-{ config, pkgs, ... } :
+{ config, pkgs, inputs, ... } :
 
 {
   imports = [
@@ -9,8 +9,10 @@
     ./configs/hypr/hyprlock.nix
   ];
 
-  home.username = "rajveer";
-  home.homeDirectory = "/home/rajveer";
+  home = {
+    username = "rajveer";
+    homeDirectory = "/home/rajveer";
+  };
 
   home.packages = with pkgs; [
     # TUIs
@@ -41,7 +43,7 @@
     mpv
     grimblast
     cmake
- 
+
     # development
     rustup
     bun
@@ -54,6 +56,7 @@
     mongosh
     github-desktop
     vscode
+    code-cursor
     zed-editor
 
     # GUIs
@@ -71,4 +74,3 @@
 
   home.stateVersion = "25.05";
 }
-
